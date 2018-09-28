@@ -21,6 +21,7 @@ interface Props {
     textTransform: "none" | "lowecase" | "uppercase",
     borderRadius: number,
     borderWidth: number,
+    padding: string
 }
 
 const StyledButton = styled<Props, any>('button')`
@@ -37,6 +38,7 @@ const StyledButton = styled<Props, any>('button')`
     border-radius: ${props => props.borderRadius}px;
     box-shadow: ${props => props.isPrimary ? '0 6px 8px rgba(0, 0, 0, .12)' : props.isOutline && 'none'};
     overflow: hidden;
+    padding: ${props => props.padding};
 `
 
 const StyledButtonInner = styled.span`
@@ -77,6 +79,7 @@ export class Button extends React.Component<Props> {
         textTransform: "none",
         borderRadius: 8,
         borderWidth: 1,
+        padding: '4px 10px'
     }
 
     static propertyControls: PropertyControls<Props> = {
@@ -96,6 +99,7 @@ export class Button extends React.Component<Props> {
         letterSpacing: { type: ControlType.Number, min: 0, max: 50, title: "Letter Spacing" },
         borderRadius: { type: ControlType.Number, title: "Border Radius" },
         borderWidth: { type: ControlType.Number, title: "Border Width" },
+        padding: { type: ControlType.String, title: "Padding" },
     }
 
     render() {
